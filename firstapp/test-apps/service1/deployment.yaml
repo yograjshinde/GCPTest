@@ -2,45 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: service1-deployment
-  namespace: argocd
-  labels:
-    app: service1
 spec:
   selector:
     matchLabels:
       app: service1
+      service.name: service1-service
   replicas: 1
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
-  revisionHistoryLimit: 1
   template:
     metadata:
       labels:
         app: service1
+        service.name: service1-service
     spec:
-      topologySpreadConstraints:
-        - maxSkew: 1
-          topologyKey: topology.kubernetes.io/zone
-          whenUnsatisfiable: ScheduleAnyway
-          labelSelector:
-            matchLabels:
-              app: service1
       containers:
       - name: service1
         image: asia-south1-docker.pkg.dev/cision-ness/ness-docker-repo/service1:v200
-        ports:
-        - name: serviceport
-          containerPort: 8080
-#        envFrom:
-#         - configMapRef:
-#              name: oip-whitepages-configmap
-        resources:
-          requests:
-            cpu: 250m
-            memory: 250Mi
-          limits:
-            cpu: 500m
-            memory: 500Mi
