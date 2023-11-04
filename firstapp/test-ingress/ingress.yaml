@@ -13,11 +13,11 @@ spec:
               service:
                 name: service1-service
                 port: 
-                  number: 80
+                  number: 8080
           - path: /swagger-ui/index.html
             pathType: Prefix
             backend:
               service:
                 name: service1-service
                 port: 
-                  number: 80
+                  number: 8080
