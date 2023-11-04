@@ -3,14 +3,13 @@ kind: Ingress
 metadata:
   name: ingress-cpr
   annotations:
-    # External Load Balancer  
-    kubernetes.io/ingress.class: "gce"  
+  namespace: argocd
 spec: 
-  defaultBackend:
-    service:
-      name: service1-service
-      port:
-        number: 8080
+  # defaultBackend:
+  #   service:
+  #     name: service1-service
+  #     port:
+  #       number: 8080
   rules:
     - http:
         paths:           
@@ -20,11 +19,11 @@ spec:
               service:
                 name: service1-service
                 port: 
-                  number: 8080
+                  number: 80
           - path: /swagger-ui/index.html
             pathType: Prefix
             backend:
               service:
                 name: service1-service
                 port: 
-                  number: 8080
+                  number: 80
