@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       app: service1
-  replicas: 2
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -33,7 +33,7 @@ spec:
         image: asia-south1-docker.pkg.dev/cision-ness/ness-docker-repo/service1:v100
         ports:
         - name: serviceport
-          containerPort: 8081
+          containerPort: 8080
 #        envFrom:
 #         - configMapRef:
 #              name: oip-whitepages-configmap
