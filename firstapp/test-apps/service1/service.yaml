@@ -6,8 +6,7 @@ metadata:
   annotations:
     service.beta.kubernetes.io/gcp-load-balancer-internal: 'true'
   labels:
-  	service.name: service1-service
-  app: service1
+  	app: service1
 spec:
   ports:
   - name: "docker-port"
