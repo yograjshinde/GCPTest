@@ -10,6 +10,11 @@ metadata:
   name: dev-ing
   namespace: argocd
 spec:
+  defaultBackend:
+    service:
+      name: service1-service
+      port:
+        number: 8081
  # ingressClassName: kong
   rules:
     http:
@@ -20,11 +25,11 @@ spec:
           service:
             name: service1-service
             port:
-              number: 80
+              number: 8081
       - path: /service1/swagger-ui/index.html
         pathType: Prefix
         backend:
           service:
             name: service1-service
             port:
-              number: 80
+              number: 8081
