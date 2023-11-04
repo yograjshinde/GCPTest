@@ -14,7 +14,7 @@ spec:
     service:
       name: service1-service
       port:
-        number: 8081
+        number: 80
  # ingressClassName: kong
   rules:
     http:
@@ -25,11 +25,11 @@ spec:
           service:
             name: service1-service
             port:
-              number: 8081
+              number: 80
       - path: /service1/swagger-ui/index.html
         pathType: Prefix
         backend:
           service:
             name: service1-service
             port:
-              number: 8081
+              number: 80
