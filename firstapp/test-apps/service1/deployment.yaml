@@ -30,7 +30,7 @@ spec:
               app: service1
       containers:
       - name: service1
-        image: asia-south1-docker.pkg.dev/cision-ness/ness-docker-repo/service1:v100
+        image: asia-south1-docker.pkg.dev/cision-ness/ness-docker-repo/service1:v200
         ports:
         - name: serviceport
           containerPort: 8080
