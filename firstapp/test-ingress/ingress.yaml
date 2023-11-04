@@ -1,35 +1,30 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  name: ingress-cpr
   annotations:
-    #nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
-    #nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    # nginx.ingress.kubernetes.io/use-regex: "true"
-    kubernetes.io/ingress.class: "gce" 
-    
-  name: dev-ing
-  namespace: argocd
-spec:
+    # External Load Balancer  
+    kubernetes.io/ingress.class: "gce"  
+spec: 
   defaultBackend:
     service:
       name: service1-service
       port:
-        number: 80
- # ingressClassName: kong
+        number: 80                  
   rules:
-    http:
-      paths:
-      - path: /getData1
-        pathType: Prefix
-        backend:
-          service:
-            name: service1-service
-            port:
-              number: 80
-      - path: /service1/swagger-ui/index.html
-        pathType: Prefix
-        backend:
-          service:
-            name: service1-service
-            port:
-              number: 80
+    - http:
+        paths:           
+          - path: /getData1
+            pathType: Prefix
+            backend:
+              service:
+                name: service1-service
+                port: 
+                  number: 80
+          - path: /swagger-ui/index.html
+            pathType: Prefix
+            backend:
+              service:
+                name: service1-service
+                port: 
+                  number: 80
