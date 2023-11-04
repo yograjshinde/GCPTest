@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: service1-deployment
-  namespace: yogi
+  namespace: argocd
 spec:
   selector:
     matchLabels:
