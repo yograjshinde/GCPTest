@@ -8,9 +8,8 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: service1
-    service.name: service1-service
+    app: service-demo
   ports:
   - protocol: TCP
     port: 8080
-    targetPort: 8080
+    targetPort: 8081
