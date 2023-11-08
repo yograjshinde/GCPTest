@@ -6,15 +6,16 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: service1
-      service.name: service1-service
+      app: service-demo
   replicas: 1
   template:
     metadata:
       labels:
-        app: service1
-        service.name: service1-service
+        app: service-demo
     spec:
       containers:
       - name: service1
-        image: asia-south1-docker.pkg.dev/cision-ness/ness-docker-repo/service1:v200
+        image: asia-south1-docker.pkg.dev/cision-ness/ness-docker-repo/service1:v300
+        ports:
+        - containerPort: 8081
+          protocol: TCP
