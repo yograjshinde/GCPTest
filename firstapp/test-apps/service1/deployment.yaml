@@ -16,6 +16,7 @@ spec:
       containers:
       - name: service1
         image: asia-south1-docker.pkg.dev/cision-ness/ness-docker-repo/service1:v300
+        imagePullPolicy: "Always"
         ports:
         - containerPort: 8081
           protocol: TCP
