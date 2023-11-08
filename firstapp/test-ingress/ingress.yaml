@@ -3,11 +3,23 @@ kind: Ingress
 metadata:
   name: ingress-cpr
   namespace: argocd
-spec: 
+spec:
+  defaultBackend:
+    service:
+      name: service1-service
+      port:
+        number: 8080
   rules:
     - http:
         paths:           
           - path: /getData1
+            pathType: Prefix
+            backend:
+              service:
+                name: service1-service
+                port: 
+                  number: 8080
+          - path: /service1/getData1
             pathType: Prefix
             backend:
               service:
