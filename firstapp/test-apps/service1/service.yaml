@@ -3,10 +3,10 @@ kind: Service
 metadata:
   namespace: argocd
   name: service1-service
-  annotations:
-    cloud.google.com/neg: '{"ingress": true}'
+  # annotations:
+  #   cloud.google.com/neg: '{"ingress": true}'
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: service-demo
   ports:
