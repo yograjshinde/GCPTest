@@ -14,7 +14,6 @@ spec:
       port:
         number: 8080
   rules:
-    - host: ness.com
       http:
         paths:           
           - path: /getData1
