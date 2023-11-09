@@ -33,3 +33,4 @@ spec:
                 name: service1-service
                 port: 
                   number: 8080
+  ingressClassName: nginx-internal
